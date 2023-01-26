@@ -71,12 +71,16 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    hardhat: {
-      blockGasLimit: 30_000_000,
+    optimism: {
+      url: "https://mainnet.optimism.io/",
+      chainId: 10,
+      accounts: {
+        mnemonic: process.env.MNEMONIC_ACCOUNT,
+        },
       throwOnCallFailures: false,
     },
     verificationNetwork: {
-      url: process.env.NETWORK_RPC ?? "",
+      url: process.env.NETWORK_RPC,
     },
   },
   gasReporter: {
@@ -87,7 +91,7 @@ const config: HardhatUserConfig = {
     apiKey: process.env.EXPLORER_API_KEY,
   },
   // specify separate cache for hardhat, since it could possibly conflict with foundry's
-  paths: { cache: "hh-cache" },
+  paths: { cache: "op-cache" },
 };
 
 export default config;
