@@ -1,3 +1,10 @@
+Smart contracts for use with NFTEarth marketplace have been deployed on Optimism Mainnet and are live:
+
+0x3E173b825ADEeF9661920B91A8d50B075Ad51bA5 - Conduit controller 
+0x0f9b80fc3c8b9123D0aEf43Df58ebDBC034A8901 - Seaport
+
+We will be able to cast to other networks retaining the same contracts addresses. 
+
 ![Seaport](img/Seaport-banner.png)
 
 [![Version][version-badge]][version-link]
