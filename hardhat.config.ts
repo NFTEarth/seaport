@@ -10,6 +10,8 @@ import "@nomiclabs/hardhat-etherscan";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "@matterlabs/hardhat-zksync-toolbox";
+
 
 // Filter Reference Contracts
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
