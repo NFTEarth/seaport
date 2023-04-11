@@ -10,6 +10,29 @@ import "@nomiclabs/hardhat-etherscan";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+import "@matterlabs/hardhat-zksync-verify";
+
+module.exports = {
+  zksolc: {
+    version: "1.3.8",
+    compilerSource: "binary",
+    settings: {},
+  },
+  defaultNetwork: "era",
+  networks: {
+    era: {
+      url: "https://mainnet.era.zksync.io", // URL of the zkSync network RPC
+      ethNetwork: "https://eth-mainnet.g.alchemy.com/v2/TQ4lgeHfLiK4PlTnSif7EA4-tPpxEmkg", // Can also be the RPC URL of the Ethereum network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      zksync: true,
+      verifyURL: "https://explorer.zksync.io/contracts/verify",
+    },
+  },
+  solidity: {
+    version: "0.8.17",
+  },
+};
 
 // Filter Reference Contracts
 subtask(TASK_COMPILE_SOLIDITY_GET_SOURCE_PATHS).setAction(
@@ -93,5 +116,28 @@ const config: HardhatUserConfig = {
   // specify separate cache for hardhat, since it could possibly conflict with foundry's
   paths: { cache: "op-cache" },
 };
+
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+
+module.exports = {
+  zksolc: {
+    version: "1.3.5",
+    compilerSource: "binary",
+    settings: {},
+  },
+  defaultNetwork: "zkSync Era Mainnet",
+  networks: {
+    zkTestnet: {
+      url: "https://mainnet.era.zksync.io",  // URL of the zkSync network RPC
+      ethNetwork: "https://mainnet.era.zksync.io", // Can also be the RPC URL of the Ethereum network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+      zksync: true,
+    },
+  },
+  solidity: {
+    version: "0.8.17",
+  },
+};
+
 
 export default config;
